@@ -1,0 +1,5 @@
+HOW MIDDLEWARE WORKS
+
+app.use((req,res,next)=>{
+
+});
