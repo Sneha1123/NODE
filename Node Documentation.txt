@@ -1,0 +1,43 @@
+CREATE APP.JS
+
+const express=require('express');	//if wanna use express and express functions
+const app=express();	//initializes the application
+const port=5000;
+app.listen(port,function(){});	//listens at a certain port and calls back a function
+
+*****************************OR**********************
+app.listen(port,()=>{
+console.log(`server started on port ${port}`);
+});
+
+-------------------------OR----------------------------
+app.listen(port,()=>{
+console.log('server started on port'+ port);
+});
+
+**********************************************************
+
+node app.js or node app
+
+---------------------------------------------------------------------------------------------------------------
+
+HOW TO CREATE ROUTES TO RESPOND TO URL
+
+const port=5000;
+app.get('/',(req,res)=>{
+res.send('index');	//to send something to browser
+});	//INDEX ROUTE and get To handle the get request as HTTP as many requests and get is one of them and also takes a function
+
+Restart the server again i.e node app
+if dont wanna restart again and again then install nodemon
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+INSTALL NODEMON
+
+stop the server
+npm install -g nodemon
+npm root -g	//to get the location of modules installed globally
+nodemon
+
+----------------------------------------------------------------------------------------------------------------------
