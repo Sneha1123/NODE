@@ -1,0 +1,33 @@
+INSTALLING:
+stop server (ctrl+C)
+npm install express-handlebars --save
+start nodemon again
+-----------------------------------------------------------------------------
+REQUIRE HANDLEBARS:
+
+const exphbs  = require('express-handlebars');
+
+--------------------------------------------------------------------------------------
+HANDLEBARS HAVE THEIR OWN MIDDLEWARE:
+
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
+---------------------------------------------------------------------------------------
+
+res.render('INDEX');	//replace res.send with res.render
+shows error saying views directory not found bcz by default express uses the views directory, therefore create one n in tht create a file index.handlebars
+
+index.handlebars:
+<h1>welcome</h1>
+
+another error saying cannot find views
+\layouts\main.handlebars, therefore create layouts folder and in that main.handlebars
+
+main.handlebars:	//like master pages
+<title>vidjot</title> 
+{{{body}}}	//if wanna include anything 
+
+
+
+
