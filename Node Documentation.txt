@@ -26,7 +26,7 @@ HOW TO CREATE ROUTES TO RESPOND TO URL
 const port=5000;
 app.get('/',(req,res)=>{
 res.send('index');	//to send something to browser
-});	//INDEX ROUTE and get To handle the get request as HTTP as many requests and get is one of them and also takes a function
+});	//INDEX ROUTE and get To handle the get request as HTTP has many requests and get is one of them and also takes a function
 
 Restart the server again i.e node app
 if dont wanna restart again and again then install nodemon
