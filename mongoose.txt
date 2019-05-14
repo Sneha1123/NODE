@@ -14,6 +14,8 @@ const mongoose=require('mongoose');
 mongoose.connect('mongodb://localhost/vidjot-vid',{
 useMongoClient:true});
 
+
+
 Adding promise with catch for catching errors:
 mongoose.connect('mongodb://localhost/vidjot-vid',{
 useMongoClient:true})
@@ -22,7 +24,17 @@ useMongoClient:true})
 
 If Shows warning of mPromise, write this above mongoose connection:
 mongoose.Promise=global.Promise;	//mapping global promise with mongoose promise
-
+********************************************************************************************************
+IN NEW VERSION:
+mongoose.Promise=global.Promise;
+mongoose.connect('mongodb://localhost/vidjot-vid',{ useNewUrlParser: true })
+    .then(() => {
+        console.log('mongoDB connected');
+    })
+    .catch(err => {
+        console.log(err);
+    });
+*********************************************************************************************************
 ---------------------------------------------------------------------------------------------------------------------------
 
 CREATING SCHEMA ON APPLICATION LEVEL USING MONGOOSE:
