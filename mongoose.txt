@@ -1,0 +1,58 @@
+MONGOOSE:
+-Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js. It manages relationships between data, provides schema validation, and is used to translate between objects in code and the representation of those objects in MongoDB. 
+- Build upon MongoDB drive to provide programmers a way to model their data.
+
+Install:
+npm install --save mongoose
+
+Mongoose Documentation:
+Mongoose ODM: https://mongoosejs.com/
+
+nodemon
+
+const mongoose=require('mongoose');
+mongoose.connect('mongodb://localhost/vidjot-vid',{
+useMongoClient:true});
+
+Adding promise with catch for catching errors:
+mongoose.connect('mongodb://localhost/vidjot-vid',{
+useMongoClient:true})
+.then(()=>{console.log('mongoDB connected')})
+.catch(err=>{console.log(err)});
+
+If Shows warning of mPromise, write this above mongoose connection:
+mongoose.Promise=global.Promise;	//mapping global promise with mongoose promise
+
+---------------------------------------------------------------------------------------------------------------------------
+
+CREATING SCHEMA ON APPLICATION LEVEL USING MONGOOSE:
+
+Create a separate folder in the root directory: 'models'
+and a file named 'idea.js'
+
+require mongoose and schema:
+const mongoose=require('mongoose');
+const Schema=mongoose.Schema;
+
+Create Schema:
+const IdeaSchema=new Schema({
+	title:{
+		type:String;
+		required:true;
+	},
+	details:{
+		type:String;
+		required:true;
+	},
+	date{
+		type:Date;
+		default:Date.now();
+	}
+});
+
+mongoose.model('ideas','IdeaSchema');
+
+Now to use it,we need to add it in app.js
+
+require(./models/idea);
+const Idea=mongoose.model('ideas');
