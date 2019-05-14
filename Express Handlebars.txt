@@ -28,6 +28,15 @@ main.handlebars:	//like master pages
 <title>vidjot</title> 
 {{{body}}}	//if wanna include anything 
 
+---------------------------------------------------------------------------------------------------------------------------------------
+PASSING DYNAMIC DATA:
+const title1=welcome1;
+res.render('index',{
+title:title1
+});
+
+in index.handlebars:
+<h1>{{title}}</h1>
 
 
 
