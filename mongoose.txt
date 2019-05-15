@@ -62,9 +62,9 @@ const IdeaSchema=new Schema({
 	}
 });
 
-mongoose.model('ideas','IdeaSchema');
+mongoose.model('ideas',IdeaSchema);	//ideas is the model we created
 
-Now to use it,we need to add it in app.js
+Now to use it,we need to add it in app.js,therefore loading the ideas
 
 require(./models/idea);
 const Idea=mongoose.model('ideas');
