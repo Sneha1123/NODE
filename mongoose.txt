@@ -68,3 +68,69 @@ Now to use it,we need to add it in app.js,therefore loading the ideas
 
 require(./models/idea);
 const Idea=mongoose.model('ideas');
+
+----------------------------------------------------------------------------------------------------------------------
+ADD IDEA FORM:
+Add route
+app.get('/ideas/add',(req,res)=>{
+	res.render('/ideas/add');
+});
+
+Create a folder in views named ideas and a file in that named add.handlebars
+
+Create the add form in add.handlebars
+
+<form action='/ideas' method='post'>	//action has the name to where the form details needs to be posted
+
+Add in app.js
+app.post('/ideas',(req,res)=>{
+res.send('ok');
+});
+
+BODY PARSER- IN ORDER TO GET THE VALUES ENTERED IN THE ADD PAGE:
+-third party module
+
+$ npm install --save body-parser
+var bodyParser = require('body-parser');
+
+//middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.post('/ideas',(req,res)=>{
+console.log(req.body);
+res.send('ok');
+});
+
+--------------------------------------------------------------------------------------------------------------------
+CLIENT-SIDE VALIDATION:
+Add the required attribute
+ 
+SERVER-SIDE VALIDATION:
+
+app.post('/ideas',(req,res)=>{
+let err=[];
+if(!req.body.title){
+err.push({
+text:'enter title'
+});
+}
+if(!req.body.details){
+err.push({
+text:'enter details'
+});
+}
+
+if(err.length > 0){
+res.render('ideas/add',{
+errors:err,
+title:req.body.title,
+details:req.body.title
+});
+
+}
+else{
+res.send('passed');
+}
+});
+
